@@ -50,8 +50,15 @@
 
 (map! :nvi "C-,"   #'good-scroll-up
       :nvi "C-."   #'good-scroll-down
-      :nvi [next]  #'good-scroll-up-full-screen
-      :nvi [prior] #'good-scroll-down-full-screen)
+      ;; :nvi [next]  #'good-scroll-up-full-screen
+      ;; :nvi [prior] #'good-scroll-down-full-screen
+      )
+
+(map! :nvi "C-,"   #'good-scroll-up
+      :nvi "C-."   #'good-scroll-down
+      :nvi [next]  #'scroll-up
+      :nvi [prior] #'scroll-down
+      )
 
 (defun browse-url-wslview (url &optional _new-window)
   (interactive (browse-url-interactive-arg "URL: "))

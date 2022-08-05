@@ -27,9 +27,14 @@
   (cider-interactive-eval (format "((requiring-resolve 'dev/reload) %s)"
                                   (--bool-str (eq 4 (car-safe arg))))))
 
+(defun cider-start-portal (&optional arg)
+  (interactive "P")
+  (cider-interactive-eval "((commands/start-portal))"))
+
 (defun cider-dev-run-terms (&optional arg)
   "Runs 'bb dev:db' and 'bb dev:clj+cljs' in separate vterm buffers."
   (interactive "P")
+  (vterm-run-cmd "bb dev:css")
   (vterm-run-cmd "bb dev:db")
   (vterm-run-cmd "bb dev:clj+cljs"))
 
@@ -38,9 +43,12 @@
         "x" #'cider-connect-clj&cljs
         (:prefix ("u" . "user")
          "u" #'cider-dev-reload
-         "t" #'cider-dev-run-terms)))
+         "t" #'cider-dev-run-terms
+         "p" #'cider-start-portal)))
 
       (:map cider-mode-map
        :ni "M-<return>" #'cider-eval-sexp-at-point
        :ni "C-M-<return>" #'cider-eval-defun-at-point
        :ni "C-M-S-<return>" #'cider-pprint-eval-defun-at-point))
+
+(require 'clj-deps-new)

@@ -15,8 +15,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Fira Code" :size 24 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Inter" :size 28))
+(setq doom-font (font-spec :family "Fira Code" :size 16 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "Inter" :size 16))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -41,8 +41,14 @@
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
 
-;; (setq doom-localleader-key ",")
-;; (setq doom-localleader-alt-key "M-,")
+(setq doom-localleader-key ",")
+(setq doom-localleader-alt-key "M-,")
+
+;; restore default Emacs bindings
+(map! :i "C-y" nil
+      :i "C-k" nil)
+
+(setq evil-want-fine-undo t)
 
 (use-package! good-scroll
   :config
@@ -71,6 +77,13 @@
 
 (setq browse-url-browser-function #'browse-url-wslview)
 
+(map! :map evil-mc-key-map
+      :nv "g." nil
+      :nv "C-n" nil
+      :nv "C-N" nil
+      :nv "C-p" nil
+      :nv "C-P" nil)
+
 (map! :leader
       (:prefix "g"
        (:when (featurep! :ui vc-gutter)
@@ -98,6 +111,19 @@
 (setq company-idle-delay nil)
 
 (map! :nvi "C-M-w" #'er/expand-region)
+
+;; gitflow breaks magit in terminal
+(remove-hook 'magit-mode-hook #'turn-on-magit-gitflow)
+
+
+(custom-set-faces
+ '(magit-diff-added ((((type tty)) (:foreground "green"))))
+ '(magit-diff-added-highlight ((((type tty)) (:foreground "LimeGreen"))))
+ '(magit-diff-context-highlight ((((type tty)) (:foreground "default"))))
+ '(magit-diff-file-heading ((((type tty)) nil)))
+ '(magit-diff-removed ((((type tty)) (:foreground "red"))))
+ '(magit-diff-removed-highlight ((((type tty)) (:foreground "IndianRed"))))
+ '(magit-section-highlight ((((type tty)) nil))))
 
 (load! "parens.el")
 (load! "clojure.el")

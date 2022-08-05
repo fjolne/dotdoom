@@ -38,11 +38,12 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 
 ;; Use `:pin' to specify a particular commit to install.
-(package! evil-cleverparens :pin "8c45879d49bfa6d4e414b6c1df700a4a51cbb869")
+;; (package! evil-cleverparens :pin "8c45879d49bfa6d4e414b6c1df700a4a51cbb869")
 (package! evil-smartparens :pin "026d4a3cfce415a4dfae1457f871b385386e61d3")
 
 (package! expand-region)
 (package! good-scroll)
+(package! clj-deps-new)
 
 
 ;; Doom's packages are pinned to a specific commit and updated from release to

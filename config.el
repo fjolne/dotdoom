@@ -125,6 +125,8 @@
  '(magit-diff-removed-highlight ((((type tty)) (:foreground "IndianRed"))))
  '(magit-section-highlight ((((type tty)) nil))))
 
+(setq confirm-kill-emacs nil)
+
 (load! "parens.el")
 (load! "clojure.el")
 (load! "ibuffer.el")

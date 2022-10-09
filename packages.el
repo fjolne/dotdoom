@@ -48,3 +48,5 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+(package! evil-smartparens :pin "026d4a3cfce415a4dfae1457f871b385386e61d3")

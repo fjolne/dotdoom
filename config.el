@@ -15,6 +15,7 @@
 ;; (setq evil-move-cursor-back nil)
 (setq evil-move-beyond-eol t)
 
+(add-hook 'emacs-lisp-mode-hook #'evil-smartparens-mode)
 (map! :map smartparens-mode-map
       "M-C-<right>" #'sp-forward-sexp
       "M-C-<left>" #'sp-backward-sexp

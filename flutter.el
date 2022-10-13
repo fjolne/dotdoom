@@ -8,3 +8,12 @@
 
 ;; (add-hook 'flutter-mode-hook
 ;;           #'flutter--on-save)
+
+(defun flutter--save ()
+  (interactive)
+  (lsp-format-buffer)
+  (projectile-save-project-buffers)
+  (flutter-hot-reload))
+
+(map! :map dart-mode-map
+      "C-s" #'flutter--save)

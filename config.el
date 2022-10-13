@@ -15,6 +15,11 @@
 ;; (setq evil-move-cursor-back nil)
 (setq evil-move-beyond-eol t)
 
+(map! :leader
+      (:prefix-map ("e" . "flycheck")
+                   "e" #'flycheck-explain-error-at-point
+                   "n" #'flycheck-next-error
+                   "p" #'flycheck-previous-error))
 
 (load! "windows")
 (load! "vterm")

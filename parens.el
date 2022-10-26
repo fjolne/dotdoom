@@ -1,5 +1,6 @@
 ;;; parens.el -*- lexical-binding: t; -*-
 
+(add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
 (add-hook 'emacs-lisp-mode-hook #'evil-smartparens-mode)
 (map! :map smartparens-mode-map
       "M-C-<right>" #'sp-forward-sexp

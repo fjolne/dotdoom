@@ -3,18 +3,21 @@
 
 (defun fj--kill-frame ()
   (interactive)
-  (vterm-send-C-d)
+  (when (fboundp 'vterm-send-C-d)
+    (vterm-send-C-d))
   (delete-frame))
 
 (map! :map general-override-mode-map
-      "M-<right>" #'evil-window-right
-      "M-<left>" #'evil-window-left
-      "M-<up>" #'evil-window-up
-      "M-<down>" #'evil-window-down
+      "M-s-<right>" #'evil-window-right
+      "M-s-<left>" #'evil-window-left
+      "M-s-<up>" #'evil-window-up
+      "M-s-<down>" #'evil-window-down
       "M-l" #'evil-window-increase-width
       "M-h" #'evil-window-decrease-width
       "M-j" #'evil-window-increase-height
       "M-k" #'evil-window-decrease-height
       "C-S-w" #'+workspace/delete
       "C-S-q" #'fj--kill-frame
+      "C-s-<right>" #'+workspace/switch-right
+      "C-s-<left>" #'+workspace/switch-left
       )

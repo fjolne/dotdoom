@@ -14,6 +14,12 @@
 (setq company-idle-delay nil) ; do not show completion popup if not asked to
 ;; (setq evil-move-cursor-back nil)
 (setq evil-move-beyond-eol t)
+(setq which-key-allow-imprecise-window-fit nil)
+
+(setq lsp-dart-sdk-dir "/home/fjolne/src/flutter/bin/cache/dart-sdk")
+
+(map!
+ "C-<escape>" #'evil-switch-to-windows-last-buffer)
 
 (map! :leader
       (:prefix-map ("e" . "flycheck")
@@ -21,7 +27,12 @@
                    "n" #'flycheck-next-error
                    "p" #'flycheck-previous-error))
 
+(after! restclient (require 'gnutls))
+
 (load! "windows")
 (load! "vterm")
 (load! "flutter")
 (load! "parens")
+(load! "sessions")
+(load! "org")
+(load! "scroll")

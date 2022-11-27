@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: ColorScheme and TextTheme
-# uuid:
-# key: trigger-key
-# condition: t
-# --
-var cs = Theme.of(context).colorScheme;
-var tt = Theme.of(context).textTheme;

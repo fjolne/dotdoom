@@ -17,3 +17,5 @@
 
 (map! :map dart-mode-map
       "C-s" #'flutter--save)
+
+(setq lsp-dart-sdk-dir "/home/fjolne/src/flutter/bin/cache/dart-sdk")

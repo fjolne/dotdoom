@@ -2,37 +2,39 @@
 
 (setq user-full-name "Oleg Martynov"
       user-mail-address "fjolne.yngling@gmail.com")
-(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 16 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "DejaVu Sans" :size 16))
-(setq doom-theme 'doom-monokai-octagon)
-(setq display-line-numbers-type t) ; or 'relative
-(setq org-directory "~/org/")
+(setq doom-font (font-spec :family "Iosevka" :size 18)
+      doom-variable-pitch-font (font-spec :family "Open Sans" :size 18)
+      doom-big-font (font-spec :family "Open Sans" :size 40))
+(setq doom-theme
+      (setq fj--default-theme 'doom-monokai-octagon))
+(setq display-line-numbers-type 'relative)
 (setq doom-localleader-key ","
       doom-localleader-alt-key "M-,")
 (setq evil-want-fine-undo t)
 (setq confirm-kill-emacs nil)
 (setq company-idle-delay nil) ; do not show completion popup if not asked to
-;; (setq evil-move-cursor-back nil)
-(setq evil-move-beyond-eol t)
-(setq which-key-allow-imprecise-window-fit nil)
+(setq evil-move-beyond-eol t) ; fix sexp movement
+(setq which-key-allow-imprecise-window-fit nil) ; fix which-key popup
+(doom-load-envvars-file "~/.doom.d/env")
+(setq langtool-java-classpath (expand-file-name "~/.local/share/LanguageTool-5.9-stable/*"))
 
-(setq lsp-dart-sdk-dir "/home/fjolne/src/flutter/bin/cache/dart-sdk")
-
-(map!
- "C-<escape>" #'evil-switch-to-windows-last-buffer)
-
-(map! :leader
+(map! "C-<escape>" #'evil-switch-to-windows-last-buffer
+      :leader
       (:prefix-map ("e" . "flycheck")
                    "e" #'flycheck-explain-error-at-point
                    "n" #'flycheck-next-error
-                   "p" #'flycheck-previous-error))
+                   "p" #'flycheck-previous-error)
+      (:prefix "g"
+               (:when (modulep! :ui vc-gutter)
+                 :desc "Popup hunk" "e" #'git-gutter:popup-hunk)))
 
-(after! restclient (require 'gnutls))
-
-(load! "windows")
-(load! "vterm")
+(load! "big-font")
 (load! "flutter")
-(load! "parens")
-(load! "sessions")
 (load! "org")
+(load! "parens")
+(load! "python")
+(load! "rust")
 (load! "scroll")
+(load! "sessions")
+(load! "vterm")
+(load! "windows")

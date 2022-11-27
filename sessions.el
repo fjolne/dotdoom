@@ -5,6 +5,10 @@
 (defun restart-emacs (&optional _)
   (shell-command "systemctl --user restart emacs"))
 
+(defun stop-emacs-daemon ()
+  (interactive)
+  (shell-command "systemctl --user stop emacs"))
+
 (defun doom/restart ()
   (interactive)
   (restart-emacs))
@@ -16,3 +20,7 @@
   (letf! ((#'save-buffers-kill-emacs #'kill-emacs)
           (confirm-kill-emacs))
     (restart-emacs)))
+
+(map! :leader
+      (:prefix "q"
+       :desc "Stop Emacs daemon" "K" #'stop-emacs-daemon))

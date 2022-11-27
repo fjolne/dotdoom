@@ -52,3 +52,6 @@
 (package! evil-smartparens :pin "026d4a3cfce415a4dfae1457f871b385386e61d3")
 (package! org-modern :pin "59b2e3c94756b4e37b2cf7b9f81028c6d4758672")
 (package! good-scroll :pin "a7ffd5c0e5935cebd545a0570f64949077f71ee3")
+
+;; (package! tree-sitter-langs
+;;   :recipe (:local-repo "/home/fjolne/src/emacs/tree-sitter-langs"))

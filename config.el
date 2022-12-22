@@ -4,7 +4,7 @@
       user-mail-address "fjolne.yngling@gmail.com")
 (setq doom-font (font-spec :family "Iosevka" :size 18)
       doom-variable-pitch-font (font-spec :family "Open Sans" :size 18)
-      doom-big-font (font-spec :family "Open Sans" :size 40))
+      doom-big-font (font-spec :family "Iosevka" :size 40))
 (setq doom-theme
       (setq fj--default-theme 'doom-monokai-octagon))
 (setq display-line-numbers-type 'relative)

@@ -38,3 +38,4 @@
 (load! "sessions")
 (load! "vterm")
 (load! "windows")
+(load! "sql")

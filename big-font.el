@@ -14,4 +14,5 @@
     ;; (fj--load-theme fj--default-theme)
     (setq display-line-numbers display-line-numbers-type)))
 
-(add-hook! 'doom-big-font-mode-hook #'fj--big-font-mode)
+;; (add-hook! 'doom-big-font-mode-hook #'fj--big-font-mode)
+;; (remove-hook! 'doom-big-font-mode-hook #'fj--big-font-mode)

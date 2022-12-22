@@ -21,8 +21,8 @@
       "M-s-<up>" #'evil-window-up
       "M-s-<down>" #'evil-window-down
 
-      "M-l" #'evil-window-increase-width
-      "M-h" #'evil-window-decrease-width
-      "M-j" #'evil-window-increase-height
-      "M-k" #'evil-window-decrease-height
+      "M-s-l" #'evil-window-increase-width
+      "M-s-h" #'evil-window-decrease-width
+      "M-s-j" #'evil-window-increase-height
+      "M-s-k" #'evil-window-decrease-height
       )

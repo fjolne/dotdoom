@@ -1,13 +1,6 @@
 ;; ;;; flutter.el -*- lexical-binding: t; -*-
 
-
-;; (defun flutter--on-save ()
-;;   (add-hook 'after-save-hook
-;;             #'flutter-hot-reload
-;;             0 t))
-
-;; (add-hook 'flutter-mode-hook
-;;           #'flutter--on-save)
+(set-popup-rule! "^\\*LSP Dart tests" :size 0.5 :quit t :select t)
 
 (defun flutter--save ()
   (interactive)

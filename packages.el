@@ -55,3 +55,9 @@
 
 ;; (package! tree-sitter-langs
 ;;   :recipe (:local-repo "/home/fjolne/src/emacs/tree-sitter-langs"))
+
+(package! chatgpt
+  :recipe (:host github :repo "joshcho/ChatGPT.el" :files ("dist" "*.el")))
+
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))

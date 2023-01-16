@@ -1,4 +1,4 @@
-;;; postgres.el -*- lexical-binding: t; -*-
+;;; sql.el -*- lexical-binding: t; -*-
 
 ;; (defvar sql-connection-alist nil)
 
@@ -19,12 +19,16 @@
 ;;          (sql-connect ',varname ,buf-name))))
 ;;   connections)))
 
+(use-package! sql
+  :config
+  (sql-set-product 'postgres))
+
 (add-hook 'sql-mode-hook 'lsp)
+(setq lsp-sqls-workspace-config-path "root")
 
 (map! :map sql-mode-map
       :localleader
       (:prefix "e"
        :desc "Execute query" "e" #'lsp-sql-execute-query
        :desc "Execute paragraph" "d" #'lsp-sql-execute-paragraph))
-
 (set-popup-rule! "^\\*sqls results\\*$" :size 0.5 :quit t :select t)

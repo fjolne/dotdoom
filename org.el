@@ -1,5 +1,10 @@
 ;;; org.el -*- lexical-binding: t; -*-
 
+(defun +org/save-and-export ()
+  (interactive)
+  (projectile-save-project-buffers)
+  (org-hugo-export-wim-to-md))
+
 (use-package! org
   :init
   (setq
@@ -29,7 +34,16 @@
    ;; "⭠ now ─────────────────────────────────────────────────"
    )
   :config
+  ;; python
+  (require 'ob-ein)
+  (add-to-list 'org-babel-load-languages '(ein . t))
+
+  (remove-hook!
+    (org-mode markdown-mode rst-mode asciidoc-mode latex-mode LaTeX-mode)
+    #'writegood-mode)
+
   (map! :mode org-mode
+        "C-s" #'+org/save-and-export
         "C-j" #'org-next-visible-heading
         "C-k" #'org-previous-visible-heading
         "C-'" nil)

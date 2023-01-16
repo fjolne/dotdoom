@@ -39,3 +39,6 @@
 (load! "vterm")
 (load! "windows")
 (load! "sql")
+(load! "chatgpt")
+(load! "copilot")
+(load! "go")

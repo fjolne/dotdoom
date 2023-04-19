@@ -6,7 +6,7 @@
       doom-variable-pitch-font (font-spec :family "Open Sans" :size 18)
       doom-big-font (font-spec :family "Iosevka" :size 40))
 (setq doom-theme
-      (setq fj--default-theme 'doom-monokai-octagon))
+      (setq fj--default-theme 'doom-gruvbox))
 (setq display-line-numbers-type 'relative)
 (setq doom-localleader-key ","
       doom-localleader-alt-key "M-,")
@@ -42,3 +42,4 @@
 (load! "chatgpt")
 (load! "copilot")
 (load! "go")
+(load! "remote")
